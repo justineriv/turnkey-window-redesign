@@ -796,6 +796,14 @@
             /* Phone becomes icon-only: the tel: link still works and still dials. */
             .header-phone span { display: none; }
         }
+    
+        @media (max-width: 1120px) {
+            .main-nav__list { gap: 0.625rem; }
+            .main-nav__link { font-size: 0.8125rem; }
+            .site-header .container { padding-left: var(--space-md); padding-right: var(--space-md); }
+            .site-logo img { height: 52px !important; }
+            .header-cta .btn { padding-left: 1rem; padding-right: 1rem; font-size: 0.875rem; }
+        }
     </style>
 </head>
 <body>
