@@ -760,15 +760,17 @@
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
-    /* ==========================================================================
-           HEADER LAYOUT FIX — Rune, 2026-08-27
-           The logo was being crushed because .site-logo had no flex-shrink:0 and sat
-           in a space-between flex row with a long nav. The phone number and CTA
-           button wrapped for the same reason. Nothing here changes the design; it
-           stops the browser deciding the geometry.
+        /* ==========================================================================
+           HEADER LAYOUT FIX - Rune, 2026-08-27
+           The logo was crushed because .site-logo had no flex-shrink:0 in a
+           space-between flex row. Phone and CTA wrapped for the same reason.
+           The header container is also widened: at 1200px the nav needed 660px
+           and had 617px, so the menu overlapped the logo.
+           Nothing here changes the visual design; it stops the browser
+           deciding the geometry.
            ========================================================================== */
 
-        .site-header .container { gap: var(--space-xl); }
+        .site-header .container { gap: var(--space-xl); max-width: 1360px; }
 
         .site-logo { flex: 0 0 auto; display: flex; align-items: center; }
         .site-logo img { display: block; width: auto; max-width: none; flex-shrink: 0; }
@@ -779,15 +781,20 @@
         .main-nav__link { white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
 
         .header-cta { flex: 0 0 auto; gap: var(--space-lg); }
-        .header-phone { white-space: nowrap; }
-        .header-phone span { white-space: nowrap; }
-        .header-cta .btn { white-space: nowrap; }
+        .header-phone, .header-phone span, .header-cta .btn { white-space: nowrap; }
 
         @media (max-width: 1300px) {
             .main-nav__list { gap: 0.875rem; }
             .main-nav__link { font-size: 0.9375rem; }
             .site-header .container { gap: var(--space-md); }
             .header-cta { gap: var(--space-md); }
+        }
+
+        @media (max-width: 1200px) {
+            .main-nav__list { gap: 0.75rem; }
+            .main-nav__link { font-size: 0.875rem; }
+            /* Phone becomes icon-only: the tel: link still works and still dials. */
+            .header-phone span { display: none; }
         }
     </style>
 </head>
