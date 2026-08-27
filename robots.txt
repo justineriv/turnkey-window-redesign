@@ -1,2 +1,11 @@
+# Crawling is deliberately ALLOWED.
+#
+# This preview must NOT be indexed, and that is handled by the
+# <meta name="robots" content="noindex, nofollow"> tag in index.html.
+#
+# Do not add a Disallow rule here. Blocking the crawler stops it fetching
+# the page, so it never reads the noindex tag - the URL can still be
+# indexed from external links and cannot then be removed. Blocking and
+# noindexing are mutually exclusive; noindex is the one that works.
 User-agent: *
-Disallow: /
+Allow: /
