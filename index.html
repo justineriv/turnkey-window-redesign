@@ -760,6 +760,35 @@
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
+    /* ==========================================================================
+           HEADER LAYOUT FIX — Rune, 2026-08-27
+           The logo was being crushed because .site-logo had no flex-shrink:0 and sat
+           in a space-between flex row with a long nav. The phone number and CTA
+           button wrapped for the same reason. Nothing here changes the design; it
+           stops the browser deciding the geometry.
+           ========================================================================== */
+
+        .site-header .container { gap: var(--space-xl); }
+
+        .site-logo { flex: 0 0 auto; display: flex; align-items: center; }
+        .site-logo img { display: block; width: auto; max-width: none; flex-shrink: 0; }
+
+        .site-header nav { flex: 1 1 auto; min-width: 0; display: flex; justify-content: flex-end; }
+
+        .main-nav__list { flex-wrap: nowrap; gap: 1.25rem; align-items: center; }
+        .main-nav__link { white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+
+        .header-cta { flex: 0 0 auto; gap: var(--space-lg); }
+        .header-phone { white-space: nowrap; }
+        .header-phone span { white-space: nowrap; }
+        .header-cta .btn { white-space: nowrap; }
+
+        @media (max-width: 1300px) {
+            .main-nav__list { gap: 0.875rem; }
+            .main-nav__link { font-size: 0.9375rem; }
+            .site-header .container { gap: var(--space-md); }
+            .header-cta { gap: var(--space-md); }
+        }
     </style>
 </head>
 <body>
@@ -768,7 +797,7 @@
 <header class="site-header">
     <div class="container">
         <a href="/" class="site-logo">
-            <img src="https://www.turnkeywindow.com/wp-content/uploads/2024/03/logo.png" alt="Turnkey Window">
+            <img src="https://www.turnkeywindow.com/wp-content/uploads/2024/03/logo.png" alt="Turnkey Window" style="height: 62px; width: auto;">
         </a>
 
         <nav>
@@ -1183,7 +1212,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="https://www.turnkeywindow.com/wp-content/uploads/2024/03/logo.png" alt="Turnkey Window">
+                <img src="https://www.turnkeywindow.com/wp-content/uploads/2024/03/logo.png" alt="Turnkey Window" style="height: 62px; width: auto;">
                 <p>Your neighbors. Your window experts. Quality window installation for New Orleans homes.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="Facebook">
